@@ -27,7 +27,7 @@ def main():
     for raw_ballot in raw_ballots:
         ballot = sorted({candidates[CANDIDATE_REGEX.search(c).group(1)]:r for (c, r) in raw_ballot.items() if CANDIDATE_REGEX.search(c)}.items(), key=lambda x: x[1])
         ballots.append(pyrankvote.Ballot(ranked_candidates=[c for c, r in ballot]))
-        print(ballot)
+        # print(ballot)
 
     
     election_result = pyrankvote.single_transferable_vote(candidates=candidates.values(), ballots=ballots, number_of_seats=5)
@@ -35,6 +35,8 @@ def main():
     winners = election_result.get_winners()
     with open('output/results.txt', 'w+') as f:
         f.write(str(election_result))
+    
+    print(election_result)
 
 def get_creds():
     return Credentials.from_service_account_info(
