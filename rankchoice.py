@@ -30,7 +30,7 @@ def main():
         print(ballot)
 
     
-    election_result = pyrankvote.single_transferable_vote(candidates=candidates.values(), ballots=ballots, number_of_seats=3)
+    election_result = pyrankvote.single_transferable_vote(candidates=candidates.values(), ballots=ballots, number_of_seats=5)
 
     winners = election_result.get_winners()
     with open('output/results.txt', 'w+') as f:
