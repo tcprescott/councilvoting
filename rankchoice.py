@@ -11,7 +11,7 @@ import pyrankvote
 load_dotenv()
 
 CANDIDATE_REGEX = re.compile('Ranked Choice \[(.*)\]')
-SEATS = 6
+SEATS = 3
 
 
 def main():
